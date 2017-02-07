@@ -1,0 +1,29 @@
+{
+    "name": "leanphp/phpspec-code-coverage",
+    "description": "Generate Code Coverage reports for PhpSpec tests",
+    "type": "library",
+    "keywords": [
+        "phpspec", "code", "coverage", "generate", "generation", "build",
+        "report", "test", "tests", "code-coverage", "reports", "clover", "spec"
+    ],
+    "homepage": "https://github.com/leanphp/phpspec-code-coverage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ek9",
+            "email": "dev@ek9.co",
+            "homepage": "https://ek9.co"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/leanphp/phpspec-code-coverage/issues",
+        "source": "https://github.com/leanphp/phpspec-code-coverage",
+        "docs": "https://github.com/leanphp/phpspec-code-coverage#phpspec-code-coverage"
+    },
+    "require": {
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "bin-dir": "bin"
+    }
+}
