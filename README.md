@@ -140,7 +140,7 @@ Copyright (c) 2013-2016 Henrik Bjornskov, for portions of code from
 Licensed under [MIT License](LICENSE).
 
 [0]: https://github.com/leanphp/phpspec-code-coverage
-[1]: https://github.com/henrikbjorn/phpspec-code-coverage
+[1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension
 [2]: http://www.phpspec.net/en/2.5.1
 [3]: https://xdebug.org/
 [4]: http://phpdbg.com/
