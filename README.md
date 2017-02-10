@@ -13,7 +13,7 @@ package with compatible version numbers for stable releases.
 
 ## Requirements
 
-- PHP 5.4
+- PHP 5.3
 - PHP [Xdebug][3] extension
 - [PhpSpec v2][2]
 
