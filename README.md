@@ -58,10 +58,10 @@ code_coverage:
   # generated.
   # Default: [html]
   format:
+    - text
     - html
     #- clover
     #- php
-    #- text
   #
   # Specify output file/directory where code coverage report will be
   # generated. You can configure different output file/directory per
@@ -71,7 +71,6 @@ code_coverage:
     html: coverage
     #clover: coverage.xml
     #php: coverage.php
-    #text: coverage.txt
   #
   # Should uncovered files be included in the reports?
   # Default: true
