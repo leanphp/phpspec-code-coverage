@@ -20,10 +20,20 @@
         "source": "https://github.com/leanphp/phpspec-code-coverage",
         "docs": "https://github.com/leanphp/phpspec-code-coverage#phpspec-code-coverage"
     },
-    "require": {
+    "require" : {
+        "php": ">=5.3.3",
+        "phpspec/phpspec": "~2.0",
+        "phpunit/php-code-coverage": "~2.0"
+    },
+    "require-dev": {
+        "ext-xdebug": ">=2.1.4",
+        "bossa/phpspec2-expect": "~1.0"
     },
     "minimum-stability": "stable",
     "config": {
         "bin-dir": "bin"
+    },
+    "autoload" : {
+        "psr-4" : { "LeanPHP\\PhpSpec\\CodeCoverage" : "src/" }
     }
 }

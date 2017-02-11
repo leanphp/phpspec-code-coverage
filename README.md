@@ -27,7 +27,7 @@ Enable extension by editing `phpspec.yml` of your project:
 
 ``` yaml
 extensions:
-  - LeanPHP\PhpSpec\CodeCoverageExtension
+  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension
 ```
 
 This will sufficient to enable Code Coverage generation by using defaults
@@ -50,7 +50,7 @@ Options).
 extensions:
   # ... other extensions ...
   # leanphp/phpspec-code-coverage
-  - LeanPHP\PhpSpec\CodeCoverageExtension
+  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension
 
 # leanphp/phpspec-code-coverage
 code_coverage:
