@@ -1,5 +1,9 @@
 phpspec-code-coverage
 =====================
+[![Latest Stable Version](https://poser.pugx.org/leanphp/phpspec-code-coverage/v/stable)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
+[![Build Status][travis-image]][travis-url]
+[![Latest Unstable Version](https://poser.pugx.org/leanphp/phpspec-code-coverage/v/unstable)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
+[![MIT License](https://poser.pugx.org/leanphp/phpspec-code-coverage/license)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 
 [phpspec-code-coverage][0] is a [PhpSpec][2] extension that generates Code
 Coverage reports for [PhpSpec][2] tests.
@@ -9,7 +13,8 @@ codebase are tested and how well. However, Code Coverage alone should NOT be
 used as a single metric defining how good your tests are.
 
 **Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
-package with compatible version numbers for stable releases.
+package with compatible version numbers for stable releases. This is
+a **backported v1.0.1 release**.
 
 ## Requirements
 
@@ -144,3 +149,6 @@ Licensed under [MIT License](LICENSE).
 [2]: http://www.phpspec.net/en/2.5.1
 [3]: https://xdebug.org/
 [4]: http://phpdbg.com/
+
+[travis-image]: https://travis-ci.org/leanphp/phpspec-code-coverage.svg
+[travis-url]: https://travis-ci.org/leanphp/phpspec-code-coverage
