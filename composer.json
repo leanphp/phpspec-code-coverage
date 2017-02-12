@@ -23,14 +23,16 @@
         "source": "https://github.com/leanphp/phpspec-code-coverage",
         "docs": "https://github.com/leanphp/phpspec-code-coverage#phpspec-code-coverage"
     },
-    "require" : {
-        "php": ">=5.3.3",
-        "phpspec/phpspec": "~2.0",
-        "phpunit/php-code-coverage": "~2.0"
+    "require": {
+        "php": "~5.3,^5.3.3||~7.0",
+        "phpspec/phpspec": "^2.0",
+        "phpunit/php-code-coverage": "^2.2.4||^3"
     },
     "require-dev": {
-        "ext-xdebug": ">=2.1.4",
-        "bossa/phpspec2-expect": "~1.0"
+        "bossa/phpspec2-expect": "^1.0"
+    },
+    "suggest": {
+        "ext-xdebug": "Install Xdebug to generate phpspec code coverage if you are not using phpdbg"
     },
     "minimum-stability": "stable",
     "config": {

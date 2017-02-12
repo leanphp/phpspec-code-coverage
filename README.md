@@ -14,12 +14,12 @@ used as a single metric defining how good your tests are.
 
 **Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
 package with compatible version numbers for stable releases. This is
-a **backported v1.0.1 release**.
+a **backported v2.1.0 release**.
 
 ## Requirements
 
-- PHP 5.3
-- PHP [Xdebug][3] extension
+- PHP 5.3.3+ (**PHP 7** is supported)
+- [Xdebug][3] or [phpdbg][4] extension enabled
 - [PhpSpec v2][2]
 
 ## Install
@@ -36,11 +36,22 @@ extensions:
 ```
 
 This will sufficient to enable Code Coverage generation by using defaults
-provided by the extension. If you execute `phpspec run` command, you will see
-code coverage generated in `coverage` directory (in `html` format). This
-extension supports various [configuration options](#Configuration Options). For
-a fully annotated example configuration file check [Configuration
-section](#Configuration).
+provided by the extension. This extension supports various [configuration
+options](#Configuration Options). For a fully annotated example configuration
+file check [Configuration section](#Configuration).
+
+## Usage
+
+If you execute `phpspec run` command, you will see code coverage generated in `coverage` directory (in `html` format):
+
+    $ bin/phpspec run
+
+### Running with phpdbg
+
+This extension now supports [phpdbg][4], which results in faster execution when
+using more recent versions of PHP. Run `phpspec` via [phpdbg][4]:
+
+    $ phpdbg -qrr phpspec run
 
 ## Configuration
 
@@ -152,3 +163,4 @@ Licensed under [MIT License](LICENSE).
 
 [travis-image]: https://travis-ci.org/leanphp/phpspec-code-coverage.svg
 [travis-url]: https://travis-ci.org/leanphp/phpspec-code-coverage
+

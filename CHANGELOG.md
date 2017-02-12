@@ -6,13 +6,20 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2017-02-12 (backported v2.1.0, original release on 2016-05-05)
+
+**Note!** v2.1.0 is final release to support PhpSpec2.
+
+- Added PHP 7 support
+- Added `phpdbg` extension support (alternative to `xdebug`)
+- Updated `blacklist` to include `test` directory by default
+- Updated `text` output to use coloring by default.
+
 ## [1.0.1] - 2017-02-11 (backported v1.0.1, original release on 2014-12-11)
 
 **Note!** This version is a direct backport of `1.0.1` of
 [henrikbjorn/phpspec-code-coverage][1] package with updated namespaces to work
 as [leanphp/phpspec-code-coverage][0].
-
-This is last release to support PHP `5.3`
 
 - PHP `>=5.3`
 - PhpSpec `~2.0`
@@ -33,7 +40,8 @@ This is last release to support PHP `5.3`
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blaclist_files` option).
 
-[1.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/1.0.1
+[2.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v2.1.0
+[1.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v1.0.1
 
 [0]: https://github.com/leanphp/phpspec-code-coverage
 [1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension

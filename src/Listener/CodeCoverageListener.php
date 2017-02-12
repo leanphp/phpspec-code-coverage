@@ -16,6 +16,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     private $reports;
     private $io;
     private $options;
+    private $enabled;
 
     public function __construct(\PHP_CodeCoverage $coverage, array $reports)
     {
@@ -23,28 +24,36 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->reports  = $reports;
         $this->options  = array(
             'whitelist' => array('src', 'lib'),
-            'blacklist' => array('vendor', 'spec'),
+            'blacklist' => array('test', 'vendor', 'spec'),
             'whitelist_files' => array(),
             'blacklist_files' => array(),
             'output'    => array('html' => 'coverage'),
             'format'    => array('html'),
         );
+
+        $this->enabled = extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg');
     }
 
     public function beforeSuite(SuiteEvent $event)
     {
+        if (!$this->enabled) {
+            return;
+        }
+
         $filter = $this->coverage->filter();
 
         array_map(array($filter, 'addDirectoryToWhitelist'), $this->options['whitelist']);
         array_map(array($filter, 'removeDirectoryFromWhitelist'), $this->options['blacklist']);
-        array_map(array($filter, 'addDirectoryToBlacklist'), $this->options['blacklist']);
         array_map(array($filter, 'addFileToWhitelist'), $this->options['whitelist_files']);
         array_map(array($filter, 'removeFileFromWhitelist'), $this->options['blacklist_files']);
-        array_map(array($filter, 'addFileToBlacklist'), $this->options['blacklist_files']);
     }
 
     public function beforeExample(ExampleEvent $event)
     {
+        if (!$this->enabled) {
+            return;
+        }
+
         $example = $event->getExample();
 
         $name = strtr('%spec%::%example%', array(
@@ -57,11 +66,23 @@ class CodeCoverageListener implements EventSubscriberInterface
 
     public function afterExample(ExampleEvent $event)
     {
+        if (!$this->enabled) {
+            return;
+        }
+
         $this->coverage->stop();
     }
 
     public function afterSuite(SuiteEvent $event)
     {
+        if (!$this->enabled) {
+            if ($this->io && $this->io->isVerbose()) {
+                $this->io->writeln('Did not detect Xdebug extension or phpdbg. No code coverage will be generated.');
+            }
+
+            return;
+        }
+
         if ($this->io && $this->io->isVerbose()) {
             $this->io->writeln('');
         }
@@ -72,7 +93,7 @@ class CodeCoverageListener implements EventSubscriberInterface
             }
 
             if ($report instanceof \PHP_CodeCoverage_Report_Text) {
-                $output = $report->process($this->coverage, /* showColors */ true);
+                $output = $report->process($this->coverage, /* showColors */ $this->io->isDecorated());
                 $this->io->writeln($output);
             } else {
                 $report->process($this->coverage, $this->options['output'][$format]);
