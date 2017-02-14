@@ -4,30 +4,33 @@ namespace LeanPHP\PhpSpec\CodeCoverage;
 
 use LeanPHP\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
 use PhpSpec\ServiceContainer;
+use SebastianBergmann\CodeCoverage\CodeCoverage;
+use SebastianBergmann\CodeCoverage\Filter;
+use SebastianBergmann\CodeCoverage\Report;
 
 /**
- * Injects a Event Subscriber into the EventDispatcher. The Subscriber
- * will before each example add CodeCoverage Information.
+ * Injects a Event Subscriber into the EventDispatcher.
+ * The Subscriber will add Code Coverage information before each example
  *
  * @author Henrik Bjornskov
  */
-class CodeCoverageExtension implements \PhpSpec\Extension\ExtensionInterface
+class CodeCoverageExtension implements \PhpSpec\Extension
 {
     /**
      * {@inheritDoc}
      */
-    public function load(ServiceContainer $container)
+    public function load(ServiceContainer $container, array $params = [])
     {
-        $container->setShared('code_coverage.filter', function () {
-            return new \PHP_CodeCoverage_Filter();
+        $container->define('code_coverage.filter', function () {
+            return new Filter();
         });
 
-        $container->setShared('code_coverage', function ($container) {
-            return new \PHP_CodeCoverage(null, $container->get('code_coverage.filter'));
+        $container->define('code_coverage', function ($container) {
+            return new CodeCoverage(null, $container->get('code_coverage.filter'));
         });
 
-        $container->setShared('code_coverage.options', function ($container) {
-            $options = $container->getParam('code_coverage');
+        $container->define('code_coverage.options', function ($container) use ($params) {
+            $options = !empty($params) ? $params : $container->getParam('code_coverage');
 
             if (!isset($options['format'])) {
                 $options['format'] = array('html');
@@ -55,20 +58,20 @@ class CodeCoverageExtension implements \PhpSpec\Extension\ExtensionInterface
             return $options;
         });
 
-        $container->setShared('code_coverage.reports', function ($container) {
+        $container->define('code_coverage.reports', function ($container) {
             $options = $container->get('code_coverage.options');
 
             $reports = array();
             foreach ($options['format'] as $format) {
                 switch ($format) {
                     case 'clover':
-                        $reports['clover'] = new \PHP_CodeCoverage_Report_Clover();
+                        $reports['clover'] = new Report\Clover();
                         break;
                     case 'php':
-                        $reports['php'] =  new \PHP_CodeCoverage_Report_PHP();
+                        $reports['php'] =  new Report\PHP();
                         break;
                     case 'text':
-                        $reports['text'] =  new \PHP_CodeCoverage_Report_Text(
+                        $reports['text'] =  new Report\Text(
                             $options['lower_upper_bound'],
                             $options['high_lower_bound'],
                             $options['show_uncovered_files'],
@@ -76,13 +79,13 @@ class CodeCoverageExtension implements \PhpSpec\Extension\ExtensionInterface
                         );
                         break;
                     case 'xml':
-                        $reports['xml'] =  new \PHP_CodeCoverage_Report_XML();
+                        $reports['xml'] =  new Report\Xml\Facade();
                         break;
                     case 'crap4j':
-                        $reports['crap4j'] = new \PHP_CodeCoverage_Report_Crap4j();
+                        $reports['crap4j'] = new Report\Crap4j();
                         break;
                     case 'html':
-                        $reports['html'] = new \PHP_CodeCoverage_Report_HTML();
+                        $reports['html'] = new Report\Html\Facade();
                         break;
                 }
             }
@@ -91,15 +94,15 @@ class CodeCoverageExtension implements \PhpSpec\Extension\ExtensionInterface
             return $reports;
         });
 
-        $container->setShared('event_dispatcher.listeners.code_coverage', function ($container) {
+        $container->define('event_dispatcher.listeners.code_coverage', function ($container) {
             $listener = new CodeCoverageListener(
+                $container->get('console.io'),
                 $container->get('code_coverage'),
                 $container->get('code_coverage.reports')
             );
-            $listener->setIO($container->get('console.io'));
             $listener->setOptions($container->getParam('code_coverage', array()));
 
             return $listener;
-        });
+        }, ['event_dispatcher.listeners']);
     }
 }

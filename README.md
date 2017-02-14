@@ -14,13 +14,14 @@ used as a single metric defining how good your tests are.
 
 **Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
 package with compatible version numbers for stable releases. This is
-a **backported v2.1.0 release**.
+a **backported v3.0.1 release**.
 
 ## Requirements
 
-- PHP 5.3.3+ (**PHP 7** is supported)
-- [Xdebug][3] or [phpdbg][4] extension enabled
-- [PhpSpec v2][2]
+- PHP 5.6+ or PHP 7+
+- [Xdebug][3] or [phpdbg][4] extension enabled (PHP 7+ is required for code
+  generation to work with [phpdbg][4]).
+- [PhpSpec v3][2]
 
 ## Install
 
@@ -32,7 +33,7 @@ Enable extension by editing `phpspec.yml` of your project:
 
 ``` yaml
 extensions:
-  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 ```
 
 This will sufficient to enable Code Coverage generation by using defaults
@@ -53,6 +54,8 @@ using more recent versions of PHP. Run `phpspec` via [phpdbg][4]:
 
     $ phpdbg -qrr phpspec run
 
+**Note!** PHP 7+ is required for code generation to work with [phpdbg][4].
+
 ## Configuration
 
 You can see fully annotated `phpspec.yml` example file below, which can be used
@@ -66,60 +69,57 @@ Options).
 extensions:
   # ... other extensions ...
   # leanphp/phpspec-code-coverage
-  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension
-
-# leanphp/phpspec-code-coverage
-code_coverage:
-  # Specify a list of formats in which code coverage report should be
-  # generated.
-  # Default: [html]
-  format:
-    - text
-    - html
-    #- clover
-    #- php
-  #
-  # Specify output file/directory where code coverage report will be
-  # generated. You can configure different output file/directory per
-  # enabled format.
-  # Default: coverage
-  output:
-    html: coverage
-    #clover: coverage.xml
-    #php: coverage.php
-  #
-  # Should uncovered files be included in the reports?
-  # Default: true
-  #show_uncovered_files: true
-  #
-  # Set lower upper bound for code coverage
-  # Default: 35
-  #lower_upper_bound: 35
-  #
-  # Set high lower bound for code coverage
-  # Default: 70
-  #high_lower_bound: 70
-  #
-  # Whilelist directories for which code generation should be done
-  # Default: [src, lib]
-  #
-  whitelist:
-    - src
-    - lib
-  #
-  # Whiltelist files for which code generation should be done
-  # Default: empty
-  #whilelist_files:
-    #- app/bootstrap.php
-    #- web/index.php
-  #
-  # Blacklist directories for which code generation should NOT be done
-  #blacklist:
-    #- src/legacy
-  #
-  # Blacklist files for which code generation should NOT be done
-  #blacklist_files:
-    #- lib/bootstrap.php
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    # Specify a list of formats in which code coverage report should be
+    # generated.
+    # Default: [html]
+    format:
+      - text
+      - html
+      #- clover
+      #- php
+    #
+    # Specify output file/directory where code coverage report will be
+    # generated. You can configure different output file/directory per
+    # enabled format.
+    # Default: coverage
+    output:
+      html: coverage
+      #clover: coverage.xml
+      #php: coverage.php
+    #
+    # Should uncovered files be included in the reports?
+    # Default: true
+    #show_uncovered_files: true
+    #
+    # Set lower upper bound for code coverage
+    # Default: 35
+    #lower_upper_bound: 35
+    #
+    # Set high lower bound for code coverage
+    # Default: 70
+    #high_lower_bound: 70
+    #
+    # Whilelist directories for which code generation should be done
+    # Default: [src, lib]
+    #
+    whitelist:
+      - src
+      - lib
+    #
+    # Whiltelist files for which code generation should be done
+    # Default: empty
+    #whilelist_files:
+      #- app/bootstrap.php
+      #- web/index.php
+    #
+    # Blacklist directories for which code generation should NOT be done
+    #blacklist:
+      #- src/legacy
+    #
+    # Blacklist files for which code generation should NOT be done
+    #blacklist_files:
+      #- lib/bootstrap.php
 ```
 
 ### Configuration Options
@@ -141,7 +141,8 @@ code_coverage:
 * `whitelist` takes an array of directories to whitelist (default: `lib`,
   `src`).
 * `whitelist_files` takes an array of files to whitelist (default: none).
-* `blacklist` takes an array of directories to blacklist
+* `blacklist` takes an array of directories to blacklist (default: `test,
+  vendor, spec`)
 * `blacklist_files` takes an array of files to blacklist
 
 ## Authors
@@ -157,7 +158,7 @@ Licensed under [MIT License](LICENSE).
 
 [0]: https://github.com/leanphp/phpspec-code-coverage
 [1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension
-[2]: http://www.phpspec.net/en/2.5.1
+[2]: http://www.phpspec.net/en/stable
 [3]: https://xdebug.org/
 [4]: http://phpdbg.com/
 

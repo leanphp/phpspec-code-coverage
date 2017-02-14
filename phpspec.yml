@@ -7,16 +7,13 @@ suites:
         psr4_prefix: LeanPHP\PhpSpec\CodeCoverage
 
 extensions:
-  - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension
-
-code_coverage:
-  format:
-    - html
-    - clover
-    - php
-    - text
-  output:
-    html: build/coverage
-    clover: build/coverage.xml
-    php: build/coverage.php
-    text: build/coverage.txt
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    format:
+      - html
+      - clover
+      - php
+      - text
+    output:
+      html: build/coverage
+      clover: build/coverage.xml
+      php: build/coverage.php

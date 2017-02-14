@@ -2,19 +2,22 @@
 
 namespace spec\LeanPHP\PhpSpec\CodeCoverage\Listener;
 
-use PhpSpec\Console\IO;
+use PhpSpec\Console\ConsoleIO;
 use PhpSpec\Event\SuiteEvent;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use SebastianBergmann\CodeCoverage\CodeCoverage;
+use SebastianBergmann\CodeCoverage\Filter;
+use SebastianBergmann\CodeCoverage\Report;
 
 /**
  * @author Henrik Bjornskov
  */
 class CodeCoverageListenerSpec extends ObjectBehavior
 {
-    function let(\PHP_CodeCoverage $coverage)
+    function let(ConsoleIO $io, CodeCoverage $coverage)
     {
-        $this->beConstructedWith($coverage, array());
+        $this->beConstructedWith($io, $coverage, array());
     }
 
     function it_is_initializable()
@@ -22,19 +25,20 @@ class CodeCoverageListenerSpec extends ObjectBehavior
         $this->shouldHaveType('LeanPHP\PhpSpec\CodeCoverage\Listener\CodeCoverageListener');
     }
 
+
     function it_should_run_all_reports(
-        \PHP_CodeCoverage $coverage,
-        \PHP_CodeCoverage_Report_Clover $clover,
-        \PHP_CodeCoverage_Report_PHP $php,
+        CodeCoverage $coverage,
+        Report\Clover $clover,
+        Report\PHP $php,
         SuiteEvent $event,
-        IO $io
+        ConsoleIO $io
     ) {
         $reports = array(
             'clover' => $clover,
             'php' =>  $php
         );
 
-        $this->beConstructedWith($coverage, $reports);
+        $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => array('clover', 'php'),
             'output' => array(
@@ -43,8 +47,6 @@ class CodeCoverageListenerSpec extends ObjectBehavior
             )
         ));
 
-        $this->setIO($io);
-
         $clover->process($coverage, 'coverage.xml')->shouldBeCalled();
         $php->process($coverage, 'coverage.php')->shouldBeCalled();
 
@@ -52,23 +54,22 @@ class CodeCoverageListenerSpec extends ObjectBehavior
     }
 
     function it_should_color_output_text_report_by_default(
-        \PHP_CodeCoverage $coverage,
-        \PHP_CodeCoverage_Report_Text $text,
+        CodeCoverage $coverage,
+        Report\Text $text,
         SuiteEvent $event,
-        IO $io
+        ConsoleIO $io
     ) {
         $reports = array(
             'text' => $text
         );
 
-        $this->beConstructedWith($coverage, $reports);
+        $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => 'text'
         ));
 
         $io->isVerbose()->willReturn(false);
         $io->isDecorated()->willReturn(true);
-        $this->setIO($io);
 
         $text->process($coverage, true)->willReturn('report');
         $io->writeln('report')->shouldBeCalled();
@@ -77,23 +78,22 @@ class CodeCoverageListenerSpec extends ObjectBehavior
     }
 
     function it_should_not_color_output_text_report_unless_specified(
-        \PHP_CodeCoverage $coverage,
-        \PHP_CodeCoverage_Report_Text $text,
+        CodeCoverage $coverage,
+        Report\Text $text,
         SuiteEvent $event,
-        IO $io
+        ConsoleIO $io
     ) {
         $reports = array(
             'text' => $text
         );
 
-        $this->beConstructedWith($coverage, $reports);
+        $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => 'text'
         ));
 
         $io->isVerbose()->willReturn(false);
         $io->isDecorated()->willReturn(false);
-        $this->setIO($io);
 
         $text->process($coverage, false)->willReturn('report');
         $io->writeln('report')->shouldBeCalled();
@@ -102,24 +102,22 @@ class CodeCoverageListenerSpec extends ObjectBehavior
     }
 
     function it_should_output_html_report(
-        \PHP_CodeCoverage $coverage,
-        \PHP_CodeCoverage_Report_HTML $html,
+        CodeCoverage $coverage,
+        Report\Html\Facade $html,
         SuiteEvent $event,
-        IO $io
+        ConsoleIO $io
     ) {
         $reports = array(
             'html' => $html
         );
 
-        $this->beConstructedWith($coverage, $reports);
+        $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => 'html',
             'output' => array('html' => 'coverage'),
         ));
 
         $io->isVerbose()->willReturn(false);
-        $this->setIO($io);
-
         $io->writeln(Argument::any())->shouldNotBeCalled();
 
 
@@ -129,24 +127,22 @@ class CodeCoverageListenerSpec extends ObjectBehavior
     }
 
     function it_should_provide_extra_output_in_verbose_mode(
-        \PHP_CodeCoverage $coverage,
-        \PHP_CodeCoverage_Report_HTML $html,
+        CodeCoverage $coverage,
+        Report\Html\Facade $html,
         SuiteEvent $event,
-        IO $io
+        ConsoleIO $io
     ) {
         $reports = array(
             'html' => $html,
         );
 
-        $this->beConstructedWith($coverage, $reports);
+        $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => 'html',
             'output' => array('html' => 'coverage'),
         ));
 
         $io->isVerbose()->willReturn(true);
-        $this->setIO($io);
-
         $io->writeln('')->shouldBeCalled();
         $io->writeln('Generating code coverage report in html format ...')->shouldBeCalled();
 
@@ -154,12 +150,13 @@ class CodeCoverageListenerSpec extends ObjectBehavior
     }
 
     function it_should_correctly_handle_black_listed_files_and_directories(
-        \PHP_CodeCoverage $coverage,
+        CodeCoverage $coverage,
         SuiteEvent $event,
-        \PHP_CodeCoverage_Filter $filter
+        Filter $filter,
+        ConsoleIO $io
     )
     {
-        $this->beConstructedWith($coverage, array());
+        $this->beConstructedWith($io, $coverage, array());
 
         $coverage->filter()->willReturn($filter);
 

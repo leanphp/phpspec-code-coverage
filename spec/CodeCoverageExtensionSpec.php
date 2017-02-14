@@ -3,7 +3,7 @@
 namespace spec\LeanPHP\PhpSpec\CodeCoverage;
 
 use PhpSpec\ObjectBehavior;
-use PhpSpec\ServiceContainer;
+use PhpSpec\ServiceContainer\IndexedServiceContainer;
 use Prophecy\Argument;
 
 /**
@@ -18,9 +18,8 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
 
     function it_should_use_html_format_by_default()
     {
-        $container = new ServiceContainer;
-        $container->setParam('code_coverage', array());
-        $this->load($container);
+        $container = new IndexedServiceContainer;
+        $this->load($container, []);
 
         $options = $container->get('code_coverage.options');
         expect($options['format'])->toBe(array('html'));
@@ -28,7 +27,7 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
 
     function it_should_transform_format_into_array()
     {
-        $container = new ServiceContainer;
+        $container = new IndexedServiceContainer;
         $container->setParam('code_coverage', array('format' => 'html'));
         $this->load($container);
 
@@ -38,7 +37,7 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
 
     function it_should_use_singular_output()
     {
-        $container = new ServiceContainer;
+        $container = new IndexedServiceContainer;
         $container->setParam('code_coverage', array('output' => 'test', 'format' => 'foo'));
         $this->load($container);
 
