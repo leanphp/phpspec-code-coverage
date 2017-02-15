@@ -6,6 +6,14 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.0] - 2017-02-15 (backported master branch on 2017-02-15)
+
+**Note!** This is last backported release which pulls all the changes from the
+`master` branch of `henrikbjorn/phpspec-code-coverage` project and releases it as
+`3.1.0`.
+
+- Add support for `php-code-coverage` v5.
+
 ## [3.0.1] - 2017-02-14 (backported v3.0.1, original release on 2016-08-02)
 
 - Require PhpSpec3
