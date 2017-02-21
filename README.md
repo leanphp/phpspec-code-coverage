@@ -22,6 +22,10 @@ package with compatible version numbers for stable releases.
   generation to work with [phpdbg][4]).
 - [PhpSpec v3][2]
 
+## Change Log
+
+Please see [CHANGELOG.md](CHANGELOG.md) for information on recent changes.
+
 ## Install
 
 Install this package as a development dependency in your project:
