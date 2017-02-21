@@ -6,7 +6,7 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.1.0] - 2017-02-15 (backported master branch on 2017-02-15)
+## [3.1.0] - 2017-02-21 (backported master branch on 2017-02-21)
 
 **Note!** This is last backported release which pulls all the changes from the
 `master` branch of `henrikbjorn/phpspec-code-coverage` project and releases it as
@@ -53,6 +53,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blaclist_files` option).
 
+[3.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.1.0
 [3.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.0.1
 [2.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v2.1.0
 [1.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v1.0.1
