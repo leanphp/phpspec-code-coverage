@@ -13,8 +13,7 @@ codebase are tested and how well. However, Code Coverage alone should NOT be
 used as a single metric defining how good your tests are.
 
 **Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
-package with compatible version numbers for stable releases. This is
-a **backported v3.0.1 release**.
+package with compatible version numbers for stable releases.
 
 ## Requirements
 
