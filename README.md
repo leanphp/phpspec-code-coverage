@@ -2,6 +2,8 @@ phpspec-code-coverage
 =====================
 [![Latest Stable Version](https://poser.pugx.org/leanphp/phpspec-code-coverage/v/stable)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 [![Build Status][travis-image]][travis-url]
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/leanphp/phpspec-code-coverage/master.svg?style=flat-square)](https://ci.appveyor.com/project/leanphp/phpspec-code-coverage)
+[![Build Status][
 [![Latest Unstable Version](https://poser.pugx.org/leanphp/phpspec-code-coverage/v/unstable)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 [![MIT License](https://poser.pugx.org/leanphp/phpspec-code-coverage/license)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 
