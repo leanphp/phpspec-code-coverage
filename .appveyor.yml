@@ -51,5 +51,5 @@ install:
 
 test_script:
   - cd c:\projects\behat-code-coverage
-  - phpdbg -qrr vendor\phpspec\phpspec\bin\phpspec -vvv
+  - phpdbg -qrr vendor\phpspec\phpspec\bin\phpspec run -vvv
 
