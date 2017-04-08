@@ -6,7 +6,6 @@ phpspec-code-coverage
 [![Total Downloads](https://img.shields.io/packagist/dt/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 [![Travis](https://img.shields.io/travis/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://travis-ci.org/leanphp/phpspec-code-coverage)
 [![AppVeyor](https://img.shields.io/appveyor/ci/leanphp/phpspec-code-coverage/master.svg?style=flat-square)](https://ci.appveyor.com/project/leanphp/phpspec-code-coverage)
-[![License](https://poser.pugx.org/leanphp/phpspec-code-coverage/license)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 
 [phpspec-code-coverage][0] is a [PhpSpec][2] extension that generates Code
 Coverage reports for [PhpSpec][2] tests.
