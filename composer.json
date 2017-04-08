@@ -38,6 +38,11 @@
     "autoload" : {
         "psr-4" : { "LeanPHP\\PhpSpec\\CodeCoverage\\": "src/" }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.2.x-dev",
+        },
+    },
     "config": {
         "bin-dir": "bin"
     }
