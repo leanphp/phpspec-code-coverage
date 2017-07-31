@@ -38,6 +38,8 @@ class CodeCoverageListenerSpec extends ObjectBehavior
             'php' =>  $php
         );
 
+        $io->isVerbose()->willReturn(false);
+
         $this->beConstructedWith($io, $coverage, $reports);
         $this->setOptions(array(
             'format' => array('clover', 'php'),
