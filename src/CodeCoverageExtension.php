@@ -7,6 +7,7 @@ use PhpSpec\ServiceContainer;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\Report;
+use SebastianBergmann\CodeCoverage\Version;
 
 /**
  * Injects a Event Subscriber into the EventDispatcher.
@@ -79,7 +80,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
                         );
                         break;
                     case 'xml':
-                        $reports['xml'] =  new Report\Xml\Facade();
+                        $reports['xml'] =  new Report\Xml\Facade(Version::id());
                         break;
                     case 'crap4j':
                         $reports['crap4j'] = new Report\Crap4j();
