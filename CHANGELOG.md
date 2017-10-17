@@ -6,6 +6,14 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.0] - 2017-10-17 - PhpSpec v4 / PHP 7+ release
+
+This release adds support for PhpSpec v4. As a result of this, PHP requirement
+has also been updated to PHP 7+.
+
+- Added PhpSpec4 support #10
+- Extension requires PHP7+ (due to PhpSpec v4 depending on it) #10
+
 ## [3.1.1] - 2017-10-17 - Maintenance release for PhpSpec v3
 
 - PHPSpec version is now included when generating XML report #12

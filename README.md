@@ -19,10 +19,9 @@ package with compatible version numbers for stable releases.
 
 ## Requirements
 
-- PHP 5.6+ or PHP 7+
+- PHP 7+ (for [PhpSpec][2] v4+) or PHP 5.6+ (for [PhpSpec][2] v3)
 - [Xdebug][3] or [phpdbg][4] extension enabled (PHP 7+ is required for code
   generation to work with [phpdbg][4]).
-- [PhpSpec v3 or v4][2]
 
 ## Change Log
 
