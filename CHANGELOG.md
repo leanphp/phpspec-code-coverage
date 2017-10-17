@@ -6,6 +6,12 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.1.1] - 2017-10-17 - Maintenance release for PhpSpec v3
+
+- PHPSpec version is now included when generating XML report #12
+- Added example configuration options for generating XML report #12
+- Minor cleanup in export-ignores. Should result in cleaner dist install #8
+
 ## [3.1.0] - 2017-02-21 (backported master branch on 2017-02-21)
 
 **Note!** This is last backported release which pulls all the changes from the
@@ -53,6 +59,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blaclist_files` option).
 
+[3.1.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.1.1
 [3.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.1.0
 [3.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.0.1
 [2.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v2.1.0
