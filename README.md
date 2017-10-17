@@ -42,7 +42,7 @@ extensions:
 
 This will sufficient to enable Code Coverage generation by using defaults
 provided by the extension. This extension supports various [configuration
-options](#Configuration Options). For a fully annotated example configuration
+options](#Options). For a fully annotated example configuration
 file check [Configuration section](#Configuration).
 
 ## Usage
@@ -64,8 +64,7 @@ using more recent versions of PHP. Run `phpspec` via [phpdbg][4]:
 
 You can see fully annotated `phpspec.yml` example file below, which can be used
 as a starting point to further customize the defaults of the extension. The
-configuration file below has all of the [Configuration Options](#Configuration
-Options).
+configuration file below has all of the [Configuration Options](#Options).
 
 ```yaml
 # phpspec.yml
@@ -128,7 +127,7 @@ extensions:
       #- lib/bootstrap.php
 ```
 
-### Configuration Options
+### Options
 
 * `format` (optional) a list of formats in which code coverage should be
   generated. Can be one or many of: `clover`, `php`, `text`, `html`, `xml` (default
