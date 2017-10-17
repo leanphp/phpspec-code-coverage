@@ -12,6 +12,7 @@ cache:
     - $HOME/.composer/cache/files
 
 install:
+  - composer validate
   - if [ "$deps" != "low" ]; then composer update; fi;
   - if [ "$deps" == "low" ]; then composer update --prefer-lowest; fi;
 
