@@ -40,7 +40,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-v3": "3.2.x-dev"
+            "dev-v3": "3.x-dev"
         }
     },
     "config": {
