@@ -10,15 +10,10 @@ cache:
   directories:
     - $HOME/.composer/cache/files
 
-before_script:
-    - if [[ $deps = low ]]; then composer update --prefer-lowest --prefer-stable; fi
+install:
+  - composer validate
+  - if [ "$deps" != "low" ]; then composer update; fi;
+  - if [ "$deps" == "low" ]; then composer update --prefer-lowest; fi;
 
 script:
-  - composer validate
-  - composer update
   - bin/phpspec run --no-code-generation
-
-install:
-    - travis_retry composer install
-
-
