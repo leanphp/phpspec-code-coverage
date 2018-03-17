@@ -6,6 +6,14 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.x.x]
+
+- `phpunit/php-code-coverage` dependency version requirement has been updated
+  from `~4.0|~5.0` to `~5.0` as we do not support version `4.0` anymore.
+- Updated README with information regarding `memory_limit` when generating code
+  coverage reports.
+- PHP 7.2 has been added to travis test matrix
+
 ## [4.0.0] - 2017-10-17 - PhpSpec v4 / PHP 7+ release
 
 This release adds support for PhpSpec v4. As a result of this, PHP requirement

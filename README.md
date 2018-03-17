@@ -50,6 +50,10 @@ If you execute `phpspec run` command, you will see code coverage generated in `c
 
     $ bin/phpspec run
 
+**Note!** When generating Code Coverage reports make sure PHP processes run via
+CLI are not memory limited (i.e. `memory_limit` set to `-1` in
+`/etc/php/cli/php.ini`).
+
 ### Running with phpdbg
 
 This extension now supports [phpdbg][4], which results in faster execution when
