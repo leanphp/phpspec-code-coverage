@@ -26,7 +26,8 @@
     "require": {
         "php": "^7.0",
         "phpspec/phpspec": "^4.0",
-        "phpunit/php-code-coverage": "~5.0"
+        "phpunit/php-code-coverage": "~5.0",
+        "sebastian/comparator": "~2.0"
     },
     "require-dev": {
         "bossa/phpspec2-expect": "^3.0"
