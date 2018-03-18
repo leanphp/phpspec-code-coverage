@@ -2,7 +2,7 @@ version: '{branch}-{build}'
 build: false
 shallow_clone: false
 platform: x64
-clone_folder: c:\projects\behat-code-coverage
+clone_folder: c:\projects\phpspec-code-coverage
 pull_requests:
   do_not_increment_build_number: true
 
@@ -70,11 +70,11 @@ install:
   - echo zend_extension="php_xdebug-%XDEBUG_VERSION%.dll" >> php.ini
   - echo xdebug.remote_enable=true >> php.ini
   - echo xdebug.remote_autostart=true >> php.ini
-  - cd c:\projects\behat-code-coverage
+  - cd c:\projects\phpspec-code-coverage
   - composer self-update
   - composer update --no-progress --no-ansi --no-interaction --no-suggest --optimize-autoloader --prefer-stable %DEPENDENCIES%
 
 test_script:
-  - cd c:\projects\behat-code-coverage
+  - cd c:\projects\phpspec-code-coverage
   - phpdbg -qrr vendor\phpspec\phpspec\bin\phpspec run -vvv
 
