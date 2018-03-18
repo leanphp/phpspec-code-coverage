@@ -16,6 +16,9 @@ used as a single metric defining how good your tests are.
 **Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
 package with compatible version numbers for stable releases.
 
+![phpspec-code-coverage console report](https://i.imgur.com/BU10ZAV.png)
+![phpspec-code-coverage HTML report](https://i.imgur.com/AcoJ5.png)
+
 ## Requirements
 
 - PHP 7+ (for [PhpSpec][2] v4+) or PHP 5.6+ (for [PhpSpec][2] v3)
