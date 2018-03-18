@@ -17,7 +17,7 @@ used as a single metric defining how good your tests are.
 package with compatible version numbers for stable releases.
 
 ![phpspec-code-coverage console report](https://i.imgur.com/BU10ZAV.png)
-![phpspec-code-coverage HTML report](https://i.imgur.com/6xAcoJ5.png)
+![phpspec-code-coverage HTML report](https://i.imgur.com/6xACR1g.png)
 
 ## Requirements
 
