@@ -72,7 +72,7 @@ install:
   - echo xdebug.remote_autostart=true >> php.ini
   - cd c:\projects\behat-code-coverage
   - composer self-update
-  - composer install --no-progress --no-ansi --no-interaction --no-suggest --optimize-autoloader --prefer-dist %DEPENDENCIES%
+  - composer update --no-progress --no-ansi --no-interaction --no-suggest --optimize-autoloader --prefer-stable %DEPENDENCIES%
 
 test_script:
   - cd c:\projects\behat-code-coverage
