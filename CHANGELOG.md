@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 4.2.x-dev - 2018-03-19
 
 - Updated `phpunit/php-code-coverage` dependency from `~5.0` to `~6.0`.
+- Updated PHP requirement from `^7.0` to `^7.1`
+- Updated `phpspec/phpspec` dependency from `~4.0` to `^4.2`
 
 ## [4.1.1] - 2018-03-19
 
