@@ -2,8 +2,12 @@ language: php
 matrix:
   include:
     - php: 7.1
+    - php: 7.1
       env: deps=low
     - php: 7.2
+    - php: 7.2
+      env: deps=low
+
 
 cache:
   directories:
