@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [4.1.1] - 2018-03-18
 
-- Added `--skip-coverage` option which can skip code coverage generation during
+- Added `--no-coverage` option which can skip code coverage generation during
   PhpSpec test run.
 
 ## [4.1.0] - 2018-03-17

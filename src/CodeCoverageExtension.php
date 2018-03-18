@@ -25,7 +25,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
     {
         foreach ($container->getByTag('console.commands') as $command) {
             if ($command->getName() == 'run') {
-                $command->addOption('skip-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
+                $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
             }
         }
 
@@ -107,7 +107,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
 
             $skipCoverage = false;
             $input = $container->get('console.input');
-            if ($input->getOption('skip-coverage')) {
+            if ($input->getOption('no-coverage')) {
                 $skipCoverage = true;
             }
 
