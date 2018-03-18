@@ -10,16 +10,16 @@ environment:
   COMPOSER_ROOT_VERSION: '7.0-dev'
   matrix:
     - PHP_VERSION: '7.2.0-Win32-VC15-x86'
-      DEPENDENCIES: '--prefer-lowest'
+      DEPENDENCIES: ''
       XDEBUG_VERSION: '2.6.0-7.2-vc15'
     - PHP_VERSION: '7.2.0-Win32-VC15-x86'
-      DEPENDENCIES: ''
+      DEPENDENCIES: '--prefer-lowest'
       XDEBUG_VERSION: '2.6.0-7.2-vc15'
     - PHP_VERSION: '7.1.12-Win32-VC14-x86'
-      DEPENDENCIES: '--prefer-lowest'
+      DEPENDENCIES: ''
       XDEBUG_VERSION: '2.6.0-7.1-vc14'
     - PHP_VERSION: '7.1.12-Win32-VC14-x86'
-      DEPENDENCIES: ''
+      DEPENDENCIES: '--prefer-lowest'
       XDEBUG_VERSION: '2.6.0-7.1-vc14'
 
 matrix:
