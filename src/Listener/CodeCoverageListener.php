@@ -20,7 +20,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     private $options;
     private $enabled;
 
-    public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports)
+    public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports, $skipCoverage = false)
     {
         $this->io = $io;
         $this->coverage = $coverage;
@@ -34,7 +34,7 @@ class CodeCoverageListener implements EventSubscriberInterface
             'format'    => array('html'),
         );
 
-        $this->enabled = extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg');
+        $this->enabled = !$skipCoverage && (extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg'));
     }
 
     /**

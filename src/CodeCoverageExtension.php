@@ -8,6 +8,7 @@ use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\Report;
 use SebastianBergmann\CodeCoverage\Version;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Injects a Event Subscriber into the EventDispatcher.
@@ -22,6 +23,13 @@ class CodeCoverageExtension implements \PhpSpec\Extension
      */
     public function load(ServiceContainer $container, array $params = [])
     {
+        foreach ($container->getByTag('console.commands') as $command) {
+            if ($command->getName() == 'run') {
+                $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
+            }
+        }
+
+
         $container->define('code_coverage.filter', function () {
             return new Filter();
         });
@@ -96,10 +104,19 @@ class CodeCoverageExtension implements \PhpSpec\Extension
         });
 
         $container->define('event_dispatcher.listeners.code_coverage', function ($container) {
+
+            $skipCoverage = false;
+            $input = $container->get('console.input');
+            if ($input->getOption('no-coverage')) {
+                $skipCoverage = true;
+            }
+
+
             $listener = new CodeCoverageListener(
                 $container->get('console.io'),
                 $container->get('code_coverage'),
-                $container->get('code_coverage.reports')
+                $container->get('code_coverage.reports'),
+                $skipCoverage
             );
             $listener->setOptions($container->getParam('code_coverage', array()));
 

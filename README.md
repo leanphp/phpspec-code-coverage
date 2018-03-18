@@ -155,7 +155,7 @@ extensions:
 
 ## Authors
 
-Copyright (c) 2017 ek9 <dev@ek9.co> (https://ek9.co).
+Copyright (c) 2017-2018 ek9 <dev@ek9.co> (https://ek9.co).
 
 Copyright (c) 2013-2016 Henrik Bjornskov, for portions of code from
 [henrikbjorn/phpspec-code-coverage][1] project.
