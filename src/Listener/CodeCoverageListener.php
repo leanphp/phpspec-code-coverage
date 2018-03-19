@@ -30,7 +30,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * @param ConsoleIO    $io
      * @param CodeCoverage $coverage
-     * @param []           $reports
+     * @param array        $reports
      * @param boolean      $skipCoverage
      */
     public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports, $skipCoverage = false)
@@ -145,7 +145,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     }
 
     /**
-     * @param [] $options
+     * @param array $options
      */
     public function setOptions(array $options)
     {
