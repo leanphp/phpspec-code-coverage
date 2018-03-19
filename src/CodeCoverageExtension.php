@@ -37,15 +37,15 @@ class CodeCoverageExtension implements \PhpSpec\Extension
         }
 
 
-        $container->define('code_coverage.filter', function() {
+        $container->define('code_coverage.filter', function () {
             return new Filter();
         });
 
-        $container->define('code_coverage', function($container) {
+        $container->define('code_coverage', function ($container) {
             return new CodeCoverage(null, $container->get('code_coverage.filter'));
         });
 
-        $container->define('code_coverage.options', function($container) use ($params) {
+        $container->define('code_coverage.options', function ($container) use ($params) {
             $options = !empty($params) ? $params : $container->getParam('code_coverage');
 
             if (!isset($options['format'])) {
@@ -74,7 +74,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
             return $options;
         });
 
-        $container->define('code_coverage.reports', function($container) {
+        $container->define('code_coverage.reports', function ($container) {
             $options = $container->get('code_coverage.options');
 
             $reports = array();
@@ -111,7 +111,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
             return $reports;
         });
 
-        $container->define('event_dispatcher.listeners.code_coverage', function($container) {
+        $container->define('event_dispatcher.listeners.code_coverage', function ($container) {
 
             $skipCoverage = false;
             $input = $container->get('console.input');
