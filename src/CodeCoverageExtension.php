@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * This file is part of the leanphp/phpspec-code-coverage package
+ *
+ * For the full copyright and license information, please see the LICENSE file
+ * that was distributed with this source code.
+ *
+ * @license MIT
+ */
 namespace LeanPHP\PhpSpec\CodeCoverage;
 
 use LeanPHP\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
@@ -24,7 +31,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
     public function load(ServiceContainer $container, array $params = [])
     {
         foreach ($container->getByTag('console.commands') as $command) {
-            if ($command->getName() == 'run') {
+            if ($command->getName() === 'run') {
                 $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
             }
         }
@@ -48,7 +55,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
             }
 
             if (isset($options['output'])) {
-                if (!is_array($options['output']) && count($options['format']) == 1) {
+                if (!is_array($options['output']) && count($options['format']) === 1) {
                     $format = $options['format'][0];
                     $options['output'] = array($format => $options['output']);
                 }
@@ -100,6 +107,7 @@ class CodeCoverageExtension implements \PhpSpec\Extension
             }
 
             $container->setParam('code_coverage', $options);
+
             return $reports;
         });
 

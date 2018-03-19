@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * This file is part of the leanphp/phpspec-code-coverage package
+ *
+ * For the full copyright and license information, please see the LICENSE file
+ * that was distributed with this source code.
+ *
+ * @license MIT
+ */
 namespace LeanPHP\PhpSpec\CodeCoverage\Listener;
 
 use PhpSpec\Console\ConsoleIO;
@@ -20,6 +27,12 @@ class CodeCoverageListener implements EventSubscriberInterface
     private $options;
     private $enabled;
 
+    /**
+     * @param ConsoleIO    $io
+     * @param CodeCoverage $coverage
+     * @param []           $reports
+     * @param boolean      $skipCoverage
+     */
     public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports, $skipCoverage = false)
     {
         $this->io = $io;
@@ -40,6 +53,8 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * Note: We use array_map() instead of array_walk() because the latter expects
      * the callback to take the value as the first and the index as the seconds parameter.
+     *
+     * @param SuiteEvent $event
      */
     public function beforeSuite(SuiteEvent $event)
     {
@@ -67,6 +82,9 @@ class CodeCoverageListener implements EventSubscriberInterface
         );
     }
 
+    /**
+     * @param ExampleEvent $event
+     */
     public function beforeExample(ExampleEvent $event)
     {
         if (!$this->enabled) {
@@ -83,6 +101,9 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->coverage->start($name);
     }
 
+    /**
+     * @param ExampleEvent $event
+     */
     public function afterExample(ExampleEvent $event)
     {
         if (!$this->enabled) {
@@ -92,6 +113,9 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->coverage->stop();
     }
 
+    /**
+     * @param SuiteEvent $event
+     */
     public function afterSuite(SuiteEvent $event)
     {
         if (!$this->enabled) {
@@ -120,6 +144,9 @@ class CodeCoverageListener implements EventSubscriberInterface
         }
     }
 
+    /**
+     * @param [] $options
+     */
     public function setOptions(array $options)
     {
         $this->options = $options + $this->options;
