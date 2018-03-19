@@ -19,6 +19,7 @@ before_script:
 script:
   - composer validate
   - composer update
+  - bin/phpcs
   - bin/phpspec run --no-code-generation
 
 install:

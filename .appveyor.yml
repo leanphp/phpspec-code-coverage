@@ -77,5 +77,6 @@ install:
 
 test_script:
   - cd c:\projects\phpspec-code-coverage
-  - phpdbg -qrr vendor\phpspec\phpspec\bin\phpspec run -vvv
+  - bin\phpcs
+  - phpdbg -qrr vendor\phpspec\phpspec\bin\phpspec run --no-code-generation -vvv
 
