@@ -3,6 +3,8 @@ phpspec-code-coverage
 [![License](https://img.shields.io/packagist/l/leanphp/phpspec-code-coverage.svg?style=flat-square)](#LICENSE)
 [![Latest Stable Version](https://img.shields.io/packagist/v/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
 [![Total Downloads](https://img.shields.io/packagist/dt/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
+[![Scrutinizer Code
+Quality](https://scrutinizer-ci.com/g/leanphp/phpspec-code-coverage/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/leanphp/phpspec-code-coverage/?branch=master)
 [![Travis](https://img.shields.io/travis/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://travis-ci.org/leanphp/phpspec-code-coverage)
 [![AppVeyor](https://img.shields.io/appveyor/ci/leanphp/phpspec-code-coverage/master.svg?style=flat-square)](https://ci.appveyor.com/project/leanphp/phpspec-code-coverage)
 
