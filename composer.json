@@ -29,7 +29,6 @@
         "phpunit/php-code-coverage": "~6.0"
     },
     "require-dev": {
-        "bossa/phpspec2-expect": "^3.0",
         "escapestudios/symfony2-coding-standard": "^3.1",
         "squizlabs/php_codesniffer": "^3.2"
     },

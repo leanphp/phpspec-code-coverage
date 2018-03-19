@@ -2,10 +2,12 @@
 /**
  * This file is part of the leanphp/phpspec-code-coverage package
  *
+ * @author  ek9 <dev@ek9.co>
+ * @license MIT
+ *
  * For the full copyright and license information, please see the LICENSE file
  * that was distributed with this source code.
  *
- * @license MIT
  */
 namespace LeanPHP\PhpSpec\CodeCoverage\Listener;
 
@@ -26,6 +28,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     private $io;
     private $options;
     private $enabled;
+    private $skipCoverage;
 
     /**
      * @param ConsoleIO    $io
@@ -47,7 +50,8 @@ class CodeCoverageListener implements EventSubscriberInterface
             'format'    => array('html'),
         );
 
-        $this->enabled = !$skipCoverage && (extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg'));
+        $this->enabled = extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg');
+        $this->skipCoverage = $skipCoverage;
     }
 
     /**
@@ -58,7 +62,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function beforeSuite(SuiteEvent $event)
     {
-        if (!$this->enabled) {
+        if (!$this->enabled || $this->skipCoverage) {
             return;
         }
 
@@ -87,7 +91,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function beforeExample(ExampleEvent $event)
     {
-        if (!$this->enabled) {
+        if (!$this->enabled || $this->skipCoverage) {
             return;
         }
 
@@ -106,7 +110,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function afterExample(ExampleEvent $event)
     {
-        if (!$this->enabled) {
+        if (!$this->enabled || $this->skipCoverage) {
             return;
         }
 
@@ -118,9 +122,13 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function afterSuite(SuiteEvent $event)
     {
-        if (!$this->enabled) {
+        if (!$this->enabled || $this->skipCoverage) {
             if ($this->io && $this->io->isVerbose()) {
-                $this->io->writeln('Did not detect Xdebug extension or phpdbg. No code coverage will be generated.');
+                if (!$this->enabled) {
+                    $this->io->writeln('No code coverage will be generated as neither Xdebug nor phpdbg was detected.');
+                } elseif ($this->skipCoverage) {
+                    $this->io->writeln('Skipping code coverage generation');
+                }
             }
 
             return;
@@ -155,13 +163,13 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * {@inheritDoc}
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
-        return array(
-            'beforeExample' => array('beforeExample', -10),
-            'afterExample'  => array('afterExample', -10),
-            'beforeSuite'   => array('beforeSuite', -10),
-            'afterSuite'    => array('afterSuite', -10),
-        );
+        return [
+            'beforeExample' => ['beforeExample', -10],
+            'afterExample'  => ['afterExample', -10],
+            'beforeSuite'   => ['beforeSuite', -10],
+            'afterSuite'    => ['afterSuite', -10],
+        ];
     }
 }

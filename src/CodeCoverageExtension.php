@@ -2,14 +2,17 @@
 /**
  * This file is part of the leanphp/phpspec-code-coverage package
  *
+ * @author  ek9 <dev@ek9.co>
+ * @license MIT
+ *
  * For the full copyright and license information, please see the LICENSE file
  * that was distributed with this source code.
  *
- * @license MIT
  */
 namespace LeanPHP\PhpSpec\CodeCoverage;
 
 use LeanPHP\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
+use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\Filter;
@@ -18,12 +21,12 @@ use SebastianBergmann\CodeCoverage\Version;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * Injects a Event Subscriber into the EventDispatcher.
+ * Injects Code Coverage Event Subscriber into the EventDispatcher.
  * The Subscriber will add Code Coverage information before each example
  *
  * @author Henrik Bjornskov
  */
-class CodeCoverageExtension implements \PhpSpec\Extension
+class CodeCoverageExtension implements Extension
 {
     /**
      * {@inheritDoc}
@@ -35,7 +38,6 @@ class CodeCoverageExtension implements \PhpSpec\Extension
                 $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
             }
         }
-
 
         $container->define('code_coverage.filter', function () {
             return new Filter();
@@ -118,7 +120,6 @@ class CodeCoverageExtension implements \PhpSpec\Extension
             if ($input->getOption('no-coverage')) {
                 $skipCoverage = true;
             }
-
 
             $listener = new CodeCoverageListener(
                 $container->get('console.io'),

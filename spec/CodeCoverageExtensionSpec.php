@@ -22,7 +22,9 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
         $this->load($container, []);
 
         $options = $container->get('code_coverage.options');
-        expect($options['format'])->toBe(array('html'));
+        if ($options['format'] !== ['html']) {
+            throw new Exception("Default format is not html");
+        }
     }
 
     function it_should_transform_format_into_array()
@@ -32,7 +34,10 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
         $this->load($container);
 
         $options = $container->get('code_coverage.options');
-        expect($options['format'])->toBe(array('html'));
+        if ($options['format'] !== ['html']) {
+            throw new Exception("Default format is not transformed to an array");
+        }
+
     }
 
     function it_should_use_singular_output()
@@ -42,6 +47,10 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
         $this->load($container);
 
         $options = $container->get('code_coverage.options');
-        expect($options['output'])->toBe(array('foo' => 'test'));
+        if ($options['output'] !== ['foo' => 'test']) {
+            throw new Exception("Default format is not singular output");
+        }
+
+
     }
 }

@@ -21,6 +21,7 @@ class CodeCoverageListenerSpec extends ObjectBehavior
      * functional (integration) tests instead. This file is left for reference.
      *
      * @see https://github.com/leanphp/phpspec-code-coverage/issues/19
+     *
     function let(ConsoleIO $io, CodeCoverage $coverage)
     {
         $this->beConstructedWith($io, $coverage, array());
