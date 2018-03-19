@@ -71,6 +71,7 @@ install:
   - echo xdebug.remote_enable=true >> php.ini
   - echo xdebug.remote_autostart=true >> php.ini
   - cd c:\projects\phpspec-code-coverage
+  - IF NOT EXIST build\coverage mkdir build\coverage
   - composer self-update
   - composer update --no-progress --no-ansi --no-interaction --no-suggest --optimize-autoloader --prefer-stable %DEPENDENCIES%
 

@@ -24,10 +24,9 @@
         "docs": "https://github.com/leanphp/phpspec-code-coverage#phpspec-code-coverage"
     },
     "require": {
-        "php": "^7.0",
-        "phpspec/phpspec": "^4.0",
-        "phpunit/php-code-coverage": "~5.0",
-        "sebastian/comparator": "~2.0"
+        "php": "^7.1",
+        "phpspec/phpspec": "^4.2",
+        "phpunit/php-code-coverage": "~6.0"
     },
     "require-dev": {
         "bossa/phpspec2-expect": "^3.0"
