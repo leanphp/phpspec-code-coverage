@@ -6,8 +6,9 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 4.x-dev
+## [4.2.1] - 2018-03-21
 
+- Integrate fixes from 4.1.2 (`--no-coverage` option bugfix)
 - Cleanup development dependencies
 - Minor code improvements
 
@@ -97,6 +98,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blaclist_files` option).
 
+[4.2.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.2.1
 [4.2.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.2.0
 [4.1.2]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.2
 [4.1.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.1
