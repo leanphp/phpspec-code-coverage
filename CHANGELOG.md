@@ -6,6 +6,12 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.1.2] - 2018-03-21
+
+- Fix `--no-coverage` option introducing errors when running non `run` commands.
+- `--no-coverage` option is now available to all phpspec commands (not only
+  `run`). (#30)
+
 ## [4.1.1] - 2018-03-19
 
 - Added `--no-coverage` option which can skip code coverage generation during
@@ -80,6 +86,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blaclist_files` option).
 
+[4.1.2]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.2
 [4.1.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.1
 [4.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.0
 [4.0.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.0.0
