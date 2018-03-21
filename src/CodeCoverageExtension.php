@@ -35,9 +35,7 @@ class CodeCoverageExtension implements Extension
     public function load(ServiceContainer $container, array $params = [])
     {
         foreach ($container->getByTag('console.commands') as $command) {
-            if ($command->getName() === 'run') {
-                $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
-            }
+            $command->addOption('no-coverage', null, InputOption::VALUE_NONE, 'Skip code coverage generation');
         }
 
         $container->define('code_coverage.filter', function () {
@@ -118,7 +116,7 @@ class CodeCoverageExtension implements Extension
 
             $skipCoverage = false;
             $input = $container->get('console.input');
-            if (!$input->hasOption('no-coverage') || $input->getOption('no-coverage')) {
+            if ($input->hasOption('no-coverage') && $input->getOption('no-coverage')) {
                 $skipCoverage = true;
             }
 
