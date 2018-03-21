@@ -42,14 +42,14 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->io = $io;
         $this->coverage = $coverage;
         $this->reports  = $reports;
-        $this->options  = array(
-            'whitelist' => array('src', 'lib'),
-            'blacklist' => array('test', 'vendor', 'spec'),
-            'whitelist_files' => array(),
-            'blacklist_files' => array(),
-            'output'    => array('html' => 'coverage'),
-            'format'    => array('html'),
-        );
+        $this->options  = [
+            'whitelist' => ['src', 'lib'],
+            'blacklist' => ['test', 'vendor', 'spec'],
+            'whitelist_files' => [],
+            'blacklist_files' => [],
+            'output'    => ['html' => 'coverage'],
+            'format'    => ['html'],
+        ];
 
         $this->enabled = extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg');
         $this->skipCoverage = $skipCoverage;
@@ -61,7 +61,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      *
      * @param SuiteEvent $event
      */
-    public function beforeSuite(SuiteEvent $event)
+    public function beforeSuite(SuiteEvent $event) : void
     {
         if (!$this->enabled || $this->skipCoverage) {
             return;
@@ -90,7 +90,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * @param ExampleEvent $event
      */
-    public function beforeExample(ExampleEvent $event)
+    public function beforeExample(ExampleEvent $event): void
     {
         if (!$this->enabled || $this->skipCoverage) {
             return;
@@ -98,10 +98,10 @@ class CodeCoverageListener implements EventSubscriberInterface
 
         $example = $event->getExample();
 
-        $name = strtr('%spec%::%example%', array(
+        $name = strtr('%spec%::%example%', [
             '%spec%' => $example->getSpecification()->getClassReflection()->getName(),
             '%example%' => $example->getFunctionReflection()->getName(),
-        ));
+        ]);
 
         $this->coverage->start($name);
     }
@@ -109,7 +109,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * @param ExampleEvent $event
      */
-    public function afterExample(ExampleEvent $event)
+    public function afterExample(ExampleEvent $event): void
     {
         if (!$this->enabled || $this->skipCoverage) {
             return;
@@ -121,7 +121,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * @param SuiteEvent $event
      */
-    public function afterSuite(SuiteEvent $event)
+    public function afterSuite(SuiteEvent $event): void
     {
         if (!$this->enabled || $this->skipCoverage) {
             if ($this->io && $this->io->isVerbose()) {
@@ -156,7 +156,7 @@ class CodeCoverageListener implements EventSubscriberInterface
     /**
      * @param array $options
      */
-    public function setOptions(array $options)
+    public function setOptions(array $options): void
     {
         $this->options = $options + $this->options;
     }

@@ -6,6 +6,10 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.x-dev
+
+- PHP 7.1 specific code improvements
+
 ## [4.2.1] - 2018-03-21
 
 - Integrate fixes from 4.1.2 (`--no-coverage` option bugfix)
