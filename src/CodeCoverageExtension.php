@@ -2,7 +2,7 @@
 /**
  * This file is part of the leanphp/phpspec-code-coverage package
  *
- * @author  ek9 <dev@ek9.co>
+ * @author ek9 <dev@ek9.co>
  *
  * @license MIT
  *
