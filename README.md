@@ -173,7 +173,7 @@ Licensed under [MIT License](LICENSE).
 [1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension
 [2]: http://www.phpspec.net/en/stable
 [3]: https://xdebug.org/
-[4]: http://phpdbg.com/
+[4]: https://github.com/krakjoe/phpdbg
 
 [travis-image]: https://travis-ci.org/leanphp/phpspec-code-coverage.svg
 [travis-url]: https://travis-ci.org/leanphp/phpspec-code-coverage
