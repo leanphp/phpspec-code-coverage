@@ -25,8 +25,8 @@
     },
     "require": {
         "php": "^7.1",
-        "phpspec/phpspec": "^4.2",
-        "phpunit/php-code-coverage": "^5.0||^6.0"
+        "phpspec/phpspec": "^4.2||^5.0",
+        "phpunit/php-code-coverage": "^5.0||^6.0||^7.0"
     },
     "require-dev": {
         "escapestudios/symfony2-coding-standard": "^3.1",
