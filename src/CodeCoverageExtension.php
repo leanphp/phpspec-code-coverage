@@ -20,6 +20,7 @@ use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\Report;
 use SebastianBergmann\CodeCoverage\Version;
 use Symfony\Component\Console\Input\InputOption;
+use LeanPHP\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
 
 /**
  * Injects Code Coverage Event Subscriber into the EventDispatcher.
@@ -43,7 +44,17 @@ class CodeCoverageExtension implements Extension
         });
 
         $container->define('code_coverage', function ($container) {
-            return new CodeCoverage(null, $container->get('code_coverage.filter'));
+            try {
+                $coverage = new CodeCoverage(null, $container->get('code_coverage.filter'));
+            } catch (\RuntimeException $error) {
+                throw new NoCoverageDriverAvailableException(
+                    "There is no available coverage driver to be used.",
+                    0,
+                    $error
+                );
+            }
+
+            return $coverage;
         });
 
         $container->define('code_coverage.options', function ($container) use ($params) {
