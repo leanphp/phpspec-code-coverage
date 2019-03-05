@@ -5,6 +5,7 @@ namespace spec\LeanPHP\PhpSpec\CodeCoverage;
 use PhpSpec\ObjectBehavior;
 use PhpSpec\ServiceContainer\IndexedServiceContainer;
 use Prophecy\Argument;
+use LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension;
 
 /**
  * @author Henrik Bjornskov
@@ -13,7 +14,7 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension');
+        $this->shouldHaveType(CodeCoverageExtension::class);
     }
 
     function it_should_use_html_format_by_default()
@@ -50,7 +51,5 @@ class CodeCoverageExtensionSpec extends ObjectBehavior
         if ($options['output'] !== ['foo' => 'test']) {
             throw new Exception("Default format is not singular output");
         }
-
-
     }
 }
