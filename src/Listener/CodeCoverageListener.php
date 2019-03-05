@@ -28,7 +28,6 @@ class CodeCoverageListener implements EventSubscriberInterface
     private $reports;
     private $io;
     private $options;
-    private $enabled;
     private $skipCoverage;
 
     /**
@@ -51,7 +50,6 @@ class CodeCoverageListener implements EventSubscriberInterface
             'format'    => ['html'],
         ];
 
-        $this->enabled = extension_loaded('xdebug') || (PHP_SAPI === 'phpdbg');
         $this->skipCoverage = $skipCoverage;
     }
 
@@ -63,7 +61,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function beforeSuite(SuiteEvent $event) : void
     {
-        if (!$this->enabled || $this->skipCoverage) {
+        if ($this->skipCoverage) {
             return;
         }
 
@@ -92,7 +90,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function beforeExample(ExampleEvent $event): void
     {
-        if (!$this->enabled || $this->skipCoverage) {
+        if ($this->skipCoverage) {
             return;
         }
 
@@ -111,7 +109,7 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function afterExample(ExampleEvent $event): void
     {
-        if (!$this->enabled || $this->skipCoverage) {
+        if ($this->skipCoverage) {
             return;
         }
 
@@ -123,13 +121,9 @@ class CodeCoverageListener implements EventSubscriberInterface
      */
     public function afterSuite(SuiteEvent $event): void
     {
-        if (!$this->enabled || $this->skipCoverage) {
+        if ($this->skipCoverage) {
             if ($this->io && $this->io->isVerbose()) {
-                if (!$this->enabled) {
-                    $this->io->writeln('No code coverage will be generated as neither Xdebug nor phpdbg was detected.');
-                } elseif ($this->skipCoverage) {
-                    $this->io->writeln('Skipping code coverage generation');
-                }
+                $this->io->writeln('Skipping code coverage generation');
             }
 
             return;
