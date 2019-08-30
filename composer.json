@@ -43,7 +43,7 @@
         "phpunit/php-code-coverage": "^5.0 || ^6.0 || ^7.0"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.2",
+        "drupol/php-conventions": "^1",
         "scrutinizer/ocular": "^1"
     },
     "suggest": {
@@ -62,6 +62,7 @@
     },
     "minimum-stability": "stable",
     "scripts": {
+        "grumphp": "./vendor/bin/grumphp run",
         "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/coverage.xml"
     },
     "support": {
