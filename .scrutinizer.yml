@@ -1,25 +1,18 @@
 build:
     nodes:
         analysis:
-            project_setup:
-                override:
-                    - 'true'
             tests:
                 override:
                     - php-scrutinizer-run
-                    -
-                        command: phpcs-run
-                        use_website_config: true
-            environment:
-                node:
-                    version: 6.0.0
+
 filter:
-    excluded_paths:
-        - 'spec/*'
-checks:
-    php: true
-coding_style:
-    php: {  }
+    paths:
+        - 'src/*'
+
 tools:
-    php_cs_fixer:
-        config: { level: Symfony } # or psr1 if you would just like to get fixes for PSR1
+    external_code_coverage:
+        timeout: 600
+    php_loc: true
+    php_pdepend: true
+    php_sim: true
+    php_changetracking: true
