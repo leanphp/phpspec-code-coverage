@@ -1,12 +1,12 @@
 {
-    "name": "leanphp/phpspec-code-coverage",
+    "name": "friends-of-phpspec/phpspec-code-coverage",
     "description": "Generate Code Coverage reports for PhpSpec tests",
     "type": "library",
     "keywords": [
         "phpspec", "code", "coverage", "generate", "generation", "build",
         "report", "test", "tests", "code-coverage", "reports", "clover", "spec"
     ],
-    "homepage": "https://github.com/leanphp/phpspec-code-coverage",
+    "homepage": "https://github.com/friends-of-phpspec/phpspec-code-coverage",
     "license": "MIT",
     "authors": [
         {
@@ -19,9 +19,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/leanphp/phpspec-code-coverage/issues",
-        "source": "https://github.com/leanphp/phpspec-code-coverage",
-        "docs": "https://github.com/leanphp/phpspec-code-coverage#phpspec-code-coverage"
+        "issues": "https://github.com/friends-of-phpspec/phpspec-code-coverage/issues",
+        "source": "https://github.com/friends-of-phpspec/phpspec-code-coverage",
+        "docs": "https://github.com/friends-of-phpspec/phpspec-code-coverage#phpspec-code-coverage"
     },
     "require": {
         "php": "^7.1",
@@ -33,7 +33,8 @@
         "squizlabs/php_codesniffer": "^3.2"
     },
     "suggest": {
-        "ext-xdebug": "Install Xdebug to generate phpspec code coverage if you are not using phpdbg"
+        "ext-xdebug": "Install Xdebug to generate phpspec code coverage.",
+        "ext-pcov": "Install PCov extension to generate code coverage."
     },
     "minimum-stability": "stable",
     "autoload" : {
