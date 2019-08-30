@@ -1,55 +1,58 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\LeanPHP\PhpSpec\CodeCoverage;
 
+use LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension;
 use PhpSpec\ObjectBehavior;
 use PhpSpec\ServiceContainer\IndexedServiceContainer;
-use Prophecy\Argument;
-use LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension;
 
 /**
  * @author Henrik Bjornskov
  */
 class CodeCoverageExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(CodeCoverageExtension::class);
     }
 
-    function it_should_use_html_format_by_default()
+    public function it_should_transform_format_into_array(): void
     {
-        $container = new IndexedServiceContainer;
+        $container = new IndexedServiceContainer();
+        $container->setParam('code_coverage', ['format' => 'html']);
+        $this->load($container);
+
+        $options = $container->get('code_coverage.options');
+
+        if ($options['format'] !== ['html']) {
+            throw new Exception('Default format is not transformed to an array');
+        }
+    }
+
+    public function it_should_use_html_format_by_default(): void
+    {
+        $container = new IndexedServiceContainer();
         $this->load($container, []);
 
         $options = $container->get('code_coverage.options');
+
         if ($options['format'] !== ['html']) {
-            throw new Exception("Default format is not html");
+            throw new Exception('Default format is not html');
         }
     }
 
-    function it_should_transform_format_into_array()
+    public function it_should_use_singular_output(): void
     {
-        $container = new IndexedServiceContainer;
-        $container->setParam('code_coverage', array('format' => 'html'));
+        $container = new IndexedServiceContainer();
+        $container->setParam('code_coverage', ['output' => 'test', 'format' => 'foo']);
         $this->load($container);
 
         $options = $container->get('code_coverage.options');
-        if ($options['format'] !== ['html']) {
-            throw new Exception("Default format is not transformed to an array");
-        }
 
-    }
-
-    function it_should_use_singular_output()
-    {
-        $container = new IndexedServiceContainer;
-        $container->setParam('code_coverage', array('output' => 'test', 'format' => 'foo'));
-        $this->load($container);
-
-        $options = $container->get('code_coverage.options');
-        if ($options['output'] !== ['foo' => 'test']) {
-            throw new Exception("Default format is not singular output");
+        if (['foo' => 'test'] !== $options['output']) {
+            throw new Exception('Default format is not singular output');
         }
     }
 }
