@@ -1,12 +1,11 @@
 phpspec-code-coverage
 =====================
-[![License](https://img.shields.io/packagist/l/leanphp/phpspec-code-coverage.svg?style=flat-square)](#LICENSE)
-[![Latest Stable Version](https://img.shields.io/packagist/v/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
-[![Total Downloads](https://img.shields.io/packagist/dt/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/leanphp/phpspec-code-coverage)
+[![License](https://img.shields.io/packagist/l/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](#LICENSE)
+[![Latest Stable Version](https://img.shields.io/packagist/v/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-code-coverage)
+[![Total Downloads](https://img.shields.io/packagist/dt/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-code-coverage)
 [![Scrutinizer Code
-Quality](https://scrutinizer-ci.com/g/leanphp/phpspec-code-coverage/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/leanphp/phpspec-code-coverage/?branch=master)
-[![Travis](https://img.shields.io/travis/leanphp/phpspec-code-coverage.svg?style=flat-square)](https://travis-ci.org/leanphp/phpspec-code-coverage)
-[![AppVeyor](https://img.shields.io/appveyor/ci/leanphp/phpspec-code-coverage/master.svg?style=flat-square)](https://ci.appveyor.com/project/leanphp/phpspec-code-coverage)
+Quality](https://img.shields.io/scrutinizer/quality/g/friends-of-phpspec/phpspec-code-coverage/master?style=flat-square)](https://scrutinizer-ci.com/g/friends-of-phpspec/phpspec-code-coverage/?branch=master)
+[![Travis](https://img.shields.io/travis/com/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](https://travis-ci.org/friends-of-phpspec/phpspec-code-coverage)
 
 [phpspec-code-coverage][0] is a [PhpSpec][2] extension that generates Code
 Coverage reports for [PhpSpec][2] tests.
@@ -14,9 +13,6 @@ Coverage reports for [PhpSpec][2] tests.
 Generating Code Coverage reports allows you to to analyze which parts of your
 codebase are tested and how well. However, Code Coverage alone should NOT be
 used as a single metric defining how good your tests are.
-
-**Note!** This is a maintained fork of [henrikbjorn/phpspec-code-coverage][1]
-package with compatible version numbers for stable releases.
 
 ![phpspec-code-coverage console report](https://i.imgur.com/BU10ZAV.png)
 ![phpspec-code-coverage HTML report](https://i.imgur.com/6xACR1g.png)
@@ -35,7 +31,7 @@ Please see [CHANGELOG.md](CHANGELOG.md) for information on recent changes.
 
 Install this package as a development dependency in your project:
 
-    $ composer require --dev leanphp/phpspec-code-coverage
+    $ composer require --dev friends-of-phpspec/phpspec-code-coverage
 
 Enable extension by editing `phpspec.yml` of your project:
 
@@ -79,7 +75,7 @@ configuration file below has all of the [Configuration Options](#Options).
 # ...
 extensions:
   # ... other extensions ...
-  # leanphp/phpspec-code-coverage
+  # friends-of-phpspec/phpspec-code-coverage
   LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
     # Specify a list of formats in which code coverage report should be
     # generated.
@@ -169,12 +165,8 @@ Copyright (c) 2013-2016 Henrik Bjornskov, for portions of code from
 
 Licensed under [MIT License](LICENSE).
 
-[0]: https://github.com/leanphp/phpspec-code-coverage
+[0]: https://github.com/friends-of-phpspec/phpspec-code-coverage
 [1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension
 [2]: http://www.phpspec.net/en/stable
 [3]: https://xdebug.org/
 [4]: https://github.com/krakjoe/phpdbg
-
-[travis-image]: https://travis-ci.org/leanphp/phpspec-code-coverage.svg
-[travis-url]: https://travis-ci.org/leanphp/phpspec-code-coverage
-
