@@ -58,7 +58,10 @@
     "autoload": {
         "psr-4": {
             "FriendsOfPhpSpec\\PhpSpec\\CodeCoverage\\": "src/"
-        }
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
     },
     "minimum-stability": "stable",
     "scripts": {
