@@ -1,10 +1,18 @@
 # CHANGELOG
 
-All notable changes to [leanphp/phpspec-code-coverage][0] package will be
+All notable changes to [https://github.com/friends-of-phpspec/phpspec-code-coverage][0] package will be
 documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [4.3.0] - 2019-10-01
+
+**Note!** This version mark the new home of the project. It was forked from
+`leanphp/phpspec-code-coverage` project and rebranded as `friends-of-phpspec/phpspec-code-coverage`.
+Find details here : https://github.com/friends-of-phpspec/phpspec-code-coverage
+
+- PHPSpec 5 support
 
 ## [4.2.2] - 2018-03-22
 
@@ -101,21 +109,21 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of directories to be excluded from code
   coverage reports (`blacklist` option).
 - Support configuring a blacklist of files to be excluded from code coverage
-  reports (`blaclist_files` option).
+  reports (`blacklist_files` option).
 
-[4.2.2]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.2.2
-[4.2.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.2.1
-[4.2.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.2.0
-[4.1.2]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.2
-[4.1.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.1
-[4.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.1.0
-[4.0.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v4.0.0
-[3.1.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.1.1
-[3.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.1.0
-[3.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v3.0.1
-[2.1.0]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v2.1.0
-[1.0.1]: https://github.com/leanphp/phpspec-code-coverage/releases/tag/v1.0.1
+[4.3.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.0
+[4.2.2]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.2
+[4.2.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.1
+[4.2.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.0
+[4.1.2]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.1.2
+[4.1.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.1.1
+[4.1.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.1.0
+[4.0.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.0.0
+[3.1.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v3.1.1
+[3.1.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v3.1.0
+[3.0.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v3.0.1
+[2.1.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v2.1.0
+[1.0.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v1.0.1
 
-[0]: https://github.com/leanphp/phpspec-code-coverage
+[0]: https://github.com/friends-of-phpspec/phpspec-code-coverage
 [1]: https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension
-

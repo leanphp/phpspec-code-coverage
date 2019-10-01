@@ -1,6 +1,5 @@
 phpspec-code-coverage
 =====================
-[![License](https://img.shields.io/packagist/l/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](#LICENSE)
 [![Latest Stable Version](https://img.shields.io/packagist/v/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-code-coverage)
 [![Total Downloads](https://img.shields.io/packagist/dt/friends-of-phpspec/phpspec-code-coverage.svg?style=flat-square)](https://packagist.org/packages/friends-of-phpspec/phpspec-code-coverage)
 [![Scrutinizer Code
@@ -170,3 +169,4 @@ Licensed under [MIT License](LICENSE).
 [2]: http://www.phpspec.net/en/stable
 [3]: https://xdebug.org/
 [4]: https://github.com/krakjoe/phpdbg
+[5]: https://github.com/leanphp/phpspec-code-coverage
