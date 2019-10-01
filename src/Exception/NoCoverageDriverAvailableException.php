@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the leanphp/phpspec-code-coverage package.
+ * This file is part of the friends-of-phpspec/phpspec-code-coverage.
  *
- * @author shulard <s.hulard@chstudio.fr>
+ * @author  shulard <s.hulard@chstudio.fr>
  * @license MIT
  *
  * For the full copyright and license information, please see the LICENSE file
  * that was distributed with this source code.
  */
 
-namespace LeanPHP\PhpSpec\CodeCoverage\Exception;
+namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception;
 
 use RuntimeException;
 

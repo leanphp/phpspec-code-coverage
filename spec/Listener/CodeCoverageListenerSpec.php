@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace spec\LeanPHP\PhpSpec\CodeCoverage\Listener;
+namespace spec\FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener;
 
 use PhpSpec\Console\ConsoleIO;
 use PhpSpec\Event\SuiteEvent;

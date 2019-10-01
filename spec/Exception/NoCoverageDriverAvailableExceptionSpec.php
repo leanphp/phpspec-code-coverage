@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\LeanPHP\PhpSpec\CodeCoverage\Exception;
+namespace spec\FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception;
 
-use LeanPHP\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
+use FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
 use PhpSpec\ObjectBehavior;
 
 /**

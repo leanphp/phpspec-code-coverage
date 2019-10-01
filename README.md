@@ -36,7 +36,7 @@ Enable extension by editing `phpspec.yml` of your project:
 
 ``` yaml
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 ```
 
 This will sufficient to enable Code Coverage generation by using defaults
@@ -75,7 +75,7 @@ configuration file below has all of the [Configuration Options](#Options).
 extensions:
   # ... other extensions ...
   # friends-of-phpspec/phpspec-code-coverage
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension:
     # Specify a list of formats in which code coverage report should be
     # generated.
     # Default: [html]

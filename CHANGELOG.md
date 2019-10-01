@@ -6,6 +6,12 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.3.1] - 2019-10-01
+
+- Update root namespace to `FriendsOfPhpSpec` but maintain a class alias to the
+  old one `LeanPHP`. The `LeanPHP` root namespace is now deprecated and will be
+  removed in v5.
+
 ## [4.3.0] - 2019-10-01
 
 **Note!** This version mark the new home of the project. It was forked from

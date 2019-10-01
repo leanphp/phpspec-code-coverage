@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the leanphp/phpspec-code-coverage package.
+ * This file is part of the friends-of-phpspec/phpspec-code-coverage package.
  *
  * @author ek9 <dev@ek9.co>
  * @license MIT
@@ -12,10 +12,10 @@ declare(strict_types=1);
  * that was distributed with this source code.
  */
 
-namespace LeanPHP\PhpSpec\CodeCoverage;
+namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage;
 
-use LeanPHP\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
-use LeanPHP\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
+use FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
+use FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
 use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
