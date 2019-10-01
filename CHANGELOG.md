@@ -117,6 +117,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blacklist_files` option).
 
+[4.3.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.1
 [4.3.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.0
 [4.2.2]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.2
 [4.2.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.1
