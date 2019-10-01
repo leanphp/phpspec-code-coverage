@@ -29,8 +29,7 @@ before_script:
 script:
   - composer validate
   - composer update
-  # - bin/phpcs
-  - vendor/bin/phpspec run --no-code-generation
+  - composer grumphp
 
 install:
     - travis_retry composer install

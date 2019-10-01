@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\LeanPHP\PhpSpec\CodeCoverage\Exception;
 
-use PhpSpec\ObjectBehavior;
 use LeanPHP\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
+use PhpSpec\ObjectBehavior;
 
 /**
  * @author Stéphane Hulard
  */
 class NoCoverageDriverAvailableExceptionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldBeAnInstanceOf(\RuntimeException::class);
         $this->shouldHaveType(NoCoverageDriverAvailableException::class);
