@@ -1,13 +1,13 @@
 # phpspec.yml
-# leanphp/phpspec-code-coverage
+# friends-of-phpspec/phpspec-code-coverage
 formatter.name: pretty
 suites:
     default_suite:
-        namespace: LeanPHP\PhpSpec\CodeCoverage
-        psr4_prefix: LeanPHP\PhpSpec\CodeCoverage
+        namespace: FriendsOfPhpSpec\PhpSpec\CodeCoverage
+        psr4_prefix: FriendsOfPhpSpec\PhpSpec\CodeCoverage
 
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension:
     format:
       - html
       - clover

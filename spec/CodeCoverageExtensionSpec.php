@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\LeanPHP\PhpSpec\CodeCoverage;
+namespace spec\FriendsOfPhpSpec\PhpSpec\CodeCoverage;
 
-use LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension;
+use FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension;
 use PhpSpec\ObjectBehavior;
 use PhpSpec\ServiceContainer\IndexedServiceContainer;
 

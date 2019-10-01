@@ -57,7 +57,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LeanPHP\\PhpSpec\\CodeCoverage\\": "src/"
+            "FriendsOfPhpSpec\\PhpSpec\\CodeCoverage\\": "src/"
         }
     },
     "minimum-stability": "stable",

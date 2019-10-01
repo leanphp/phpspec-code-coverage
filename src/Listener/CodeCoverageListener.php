@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the leanphp/phpspec-code-coverage package.
+ * This file is part of the friends-of-phpspec/phpspec-code-coverage package.
  *
  * @author  ek9 <dev@ek9.co>
  * @license MIT
@@ -12,7 +12,7 @@ declare(strict_types=1);
  * that was distributed with this source code.
  */
 
-namespace LeanPHP\PhpSpec\CodeCoverage\Listener;
+namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener;
 
 use PhpSpec\Console\ConsoleIO;
 use PhpSpec\Event\ExampleEvent;
