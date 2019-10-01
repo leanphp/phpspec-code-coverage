@@ -19,7 +19,7 @@ used as a single metric defining how good your tests are.
 ## Requirements
 
 - PHP 7+ (for [PhpSpec][2] v4+) or PHP 5.6+ (for [PhpSpec][2] v3)
-- [Xdebug][3] or [phpdbg][4] extension enabled (PHP 7+ is required for code
+- [Xdebug][3], [phpdbg][4] or [pcov][6] extension enabled (PHP 7+ is required for code
   generation to work with [phpdbg][4]).
 
 ## Change Log
@@ -170,3 +170,4 @@ Licensed under [MIT License](LICENSE).
 [3]: https://xdebug.org/
 [4]: https://github.com/krakjoe/phpdbg
 [5]: https://github.com/leanphp/phpspec-code-coverage
+[6]: https://github.com/krakjoe/pcov
