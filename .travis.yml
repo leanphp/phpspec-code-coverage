@@ -1,4 +1,5 @@
 language: php
+
 matrix:
   include:
     - php: 7.1
@@ -7,7 +8,16 @@ matrix:
     - php: 7.2
     - php: 7.2
       env: deps=low
+    - php: 7.3
+    - php: 7.3
+      env: deps=low
+    - php: nightly
+      env: deps=low
+    - php: nightly
+  allow_failures:
+    - php: nightly
 
+depth: 1
 
 cache:
   directories:
@@ -19,10 +29,12 @@ before_script:
 script:
   - composer validate
   - composer update
-  - bin/phpcs
-  - bin/phpspec run --no-code-generation
+  # - bin/phpcs
+  - vendor/bin/phpspec run --no-code-generation
 
 install:
     - travis_retry composer install
 
-
+after_success:
+  - phpenv config-rm xdebug.ini
+  - composer scrutinizer

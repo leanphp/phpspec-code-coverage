@@ -1,10 +1,15 @@
 {
     "name": "friends-of-phpspec/phpspec-code-coverage",
-    "description": "Generate Code Coverage reports for PhpSpec tests",
     "type": "library",
+    "description": "Generate Code Coverage reports for PhpSpec tests",
     "keywords": [
-        "phpspec", "code", "coverage", "generate", "generation", "build",
-        "report", "test", "tests", "code-coverage", "reports", "clover", "spec"
+        "phpspec",
+        "coverage",
+        "report",
+        "test",
+        "tests",
+        "code-coverage",
+        "spec"
     ],
     "homepage": "https://github.com/friends-of-phpspec/phpspec-code-coverage",
     "license": "MIT",
@@ -16,37 +21,52 @@
         },
         {
             "name": "Henrik Bjornskov"
+        },
+        {
+            "name": "Stéphane Hulard",
+            "email": "s.hulard@chstudio.fr",
+            "homepage": "https://chstudio.fr"
+        },
+        {
+            "name": "Pol Dellaiera",
+            "email": "pol.dellaiera@protonmail.com",
+            "homepage": "https://not-a-number.io/"
+        },
+        {
+            "name": "Jay Linski",
+            "homepage": "https://twitter.com/jay_linski"
         }
     ],
+    "require": {
+        "php": "^7.1",
+        "phpspec/phpspec": "^4.2 || ^5.0",
+        "phpunit/php-code-coverage": "^5.0 || ^6.0 || ^7.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2",
+        "scrutinizer/ocular": "^1"
+    },
+    "suggest": {
+        "ext-pcov": "Install PCov extension to generate code coverage.",
+        "ext-xdebug": "Install Xdebug to generate phpspec code coverage."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "LeanPHP\\PhpSpec\\CodeCoverage\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "scrutinizer": "./vendor/bin/ocular code-coverage:upload --format=php-clover build/coverage.xml"
+    },
     "support": {
         "issues": "https://github.com/friends-of-phpspec/phpspec-code-coverage/issues",
         "source": "https://github.com/friends-of-phpspec/phpspec-code-coverage",
         "docs": "https://github.com/friends-of-phpspec/phpspec-code-coverage#phpspec-code-coverage"
-    },
-    "require": {
-        "php": "^7.1",
-        "phpspec/phpspec": "^4.2||^5.0",
-        "phpunit/php-code-coverage": "^5.0||^6.0||^7.0"
-    },
-    "require-dev": {
-        "escapestudios/symfony2-coding-standard": "^3.1",
-        "squizlabs/php_codesniffer": "^3.2"
-    },
-    "suggest": {
-        "ext-xdebug": "Install Xdebug to generate phpspec code coverage.",
-        "ext-pcov": "Install PCov extension to generate code coverage."
-    },
-    "minimum-stability": "stable",
-    "autoload" : {
-        "psr-4" : { "LeanPHP\\PhpSpec\\CodeCoverage\\": "src/" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "4.x-dev",
-            "dev-v3": "3.x-dev"
-        }
-    },
-    "config": {
-        "bin-dir": "bin"
     }
 }
