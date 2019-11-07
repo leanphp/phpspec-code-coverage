@@ -13,7 +13,7 @@ declare(strict_types=1);
  */
 use FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension;
 
-\class_alias(
+class_alias(
     CodeCoverageExtension::class,
     'LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension'
 );

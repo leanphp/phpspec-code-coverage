@@ -93,7 +93,7 @@ class CodeCoverageListener implements EventSubscriberInterface
 
         foreach ($this->reports as $format => $report) {
             if ($this->io && $this->io->isVerbose()) {
-                $this->io->writeln(\sprintf('Generating code coverage report in %s format ...', $format));
+                $this->io->writeln(sprintf('Generating code coverage report in %s format ...', $format));
             }
 
             if ($report instanceof Report\Text) {
@@ -123,7 +123,7 @@ class CodeCoverageListener implements EventSubscriberInterface
             $name = $spec->getClassReflection()->getName();
         }
 
-        $name = \strtr('%spec%::%example%', [
+        $name = strtr('%spec%::%example%', [
             '%spec%' => $name,
             '%example%' => $example->getFunctionReflection()->getName(),
         ]);
