@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\FriendsOfPhpSpec\PhpSpec\CodeCoverage;
 
+use Exception;
 use FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension;
 use PhpSpec\ObjectBehavior;
 use PhpSpec\ServiceContainer\IndexedServiceContainer;

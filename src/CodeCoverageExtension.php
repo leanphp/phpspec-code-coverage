@@ -53,7 +53,11 @@ class CodeCoverageExtension implements Extension
             try {
                 $coverage = new CodeCoverage(null, $container->get('code_coverage.filter'));
             } catch (RuntimeException $error) {
-                throw new NoCoverageDriverAvailableException('There is no available coverage driver to be used.', 0, $error);
+                throw new NoCoverageDriverAvailableException(
+                    'There is no available coverage driver to be used.',
+                    0,
+                    $error
+                );
             }
 
             return $coverage;
@@ -68,9 +72,11 @@ class CodeCoverageExtension implements Extension
                 $options['format'] = (array) $options['format'];
             }
 
-            if (isset($options['output']) && !is_array($options['output']) && 1 === count($options['format'])) {
-                $format = $options['format'][0];
-                $options['output'] = [$format => $options['output']];
+            if (isset($options['output'])) {
+                if (!is_array($options['output']) && 1 === count($options['format'])) {
+                    $format = $options['format'][0];
+                    $options['output'] = [$format => $options['output']];
+                }
             }
 
             if (!isset($options['show_uncovered_files'])) {
