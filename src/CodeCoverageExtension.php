@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of the friends-of-phpspec/phpspec-code-coverage package.
  *
@@ -12,17 +10,23 @@ declare(strict_types=1);
  * that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage;
 
 use FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception\NoCoverageDriverAvailableException;
 use FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener\CodeCoverageListener;
 use PhpSpec\Extension;
 use PhpSpec\ServiceContainer;
+use RuntimeException;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\Report;
 use SebastianBergmann\CodeCoverage\Version;
 use Symfony\Component\Console\Input\InputOption;
+
+use function count;
+use function is_array;
 
 /**
  * Injects Code Coverage Event Subscriber into the EventDispatcher.
@@ -48,7 +52,7 @@ class CodeCoverageExtension implements Extension
         $container->define('code_coverage', static function ($container) {
             try {
                 $coverage = new CodeCoverage(null, $container->get('code_coverage.filter'));
-            } catch (\RuntimeException $error) {
+            } catch (RuntimeException $error) {
                 throw new NoCoverageDriverAvailableException(
                     'There is no available coverage driver to be used.',
                     0,
@@ -64,12 +68,12 @@ class CodeCoverageExtension implements Extension
 
             if (!isset($options['format'])) {
                 $options['format'] = ['html'];
-            } elseif (!\is_array($options['format'])) {
+            } elseif (!is_array($options['format'])) {
                 $options['format'] = (array) $options['format'];
             }
 
             if (isset($options['output'])) {
-                if (!\is_array($options['output']) && 1 === \count($options['format'])) {
+                if (!is_array($options['output']) && 1 === count($options['format'])) {
                     $format = $options['format'][0];
                     $options['output'] = [$format => $options['output']];
                 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of the friends-of-phpspec/phpspec-code-coverage.
  *
@@ -11,6 +9,8 @@ declare(strict_types=1);
  * For the full copyright and license information, please see the LICENSE file
  * that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage\Exception;
 

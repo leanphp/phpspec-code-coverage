@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of the friends-of-phpspec/phpspec-code-coverage package.
  *
@@ -11,6 +9,8 @@ declare(strict_types=1);
  * For the full copyright and license information, please see the LICENSE file
  * that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener;
 
@@ -34,18 +34,9 @@ class CodeCoverageListener implements EventSubscriberInterface
 
     private $reports;
 
-    /**
-     * @var bool
-     */
     private $skipCoverage;
 
-    /**
-     * @param ConsoleIO    $io
-     * @param CodeCoverage $coverage
-     * @param array        $reports
-     * @param bool      $skipCoverage
-     */
-    public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports, $skipCoverage = false)
+    public function __construct(ConsoleIO $io, CodeCoverage $coverage, array $reports, bool $skipCoverage = false)
     {
         $this->io = $io;
         $this->coverage = $coverage;
@@ -62,9 +53,6 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->skipCoverage = $skipCoverage;
     }
 
-    /**
-     * @param ExampleEvent $event
-     */
     public function afterExample(ExampleEvent $event): void
     {
         if ($this->skipCoverage) {
@@ -74,9 +62,6 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->coverage->stop();
     }
 
-    /**
-     * @param SuiteEvent $event
-     */
     public function afterSuite(SuiteEvent $event): void
     {
         if ($this->skipCoverage) {
@@ -93,7 +78,7 @@ class CodeCoverageListener implements EventSubscriberInterface
 
         foreach ($this->reports as $format => $report) {
             if ($this->io && $this->io->isVerbose()) {
-                $this->io->writeln(\sprintf('Generating code coverage report in %s format ...', $format));
+                $this->io->writeln(sprintf('Generating code coverage report in %s format ...', $format));
             }
 
             if ($report instanceof Report\Text) {
@@ -106,9 +91,6 @@ class CodeCoverageListener implements EventSubscriberInterface
         }
     }
 
-    /**
-     * @param ExampleEvent $event
-     */
     public function beforeExample(ExampleEvent $event): void
     {
         if ($this->skipCoverage) {
@@ -123,7 +105,7 @@ class CodeCoverageListener implements EventSubscriberInterface
             $name = $spec->getClassReflection()->getName();
         }
 
-        $name = \strtr('%spec%::%example%', [
+        $name = strtr('%spec%::%example%', [
             '%spec%' => $name,
             '%example%' => $example->getFunctionReflection()->getName(),
         ]);
@@ -175,9 +157,6 @@ class CodeCoverageListener implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param array $options
-     */
     public function setOptions(array $options): void
     {
         $this->options = $options + $this->options;
