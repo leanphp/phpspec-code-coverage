@@ -6,6 +6,10 @@ documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.3.2] - 2019-11-12
+
+- Allow compatibility with PHPSpec v6
+
 ## [4.3.1] - 2019-10-01
 
 - Update root namespace to `FriendsOfPhpSpec` but maintain a class alias to the
@@ -117,6 +121,7 @@ as [leanphp/phpspec-code-coverage][0].
 - Support configuring a blacklist of files to be excluded from code coverage
   reports (`blacklist_files` option).
 
+[4.3.2]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.2
 [4.3.1]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.1
 [4.3.0]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.3.0
 [4.2.2]: https://github.com/friends-of-phpspec/phpspec-code-coverage/releases/tag/v4.2.2
