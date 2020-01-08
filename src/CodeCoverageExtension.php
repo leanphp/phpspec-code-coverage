@@ -143,13 +143,16 @@ class CodeCoverageExtension implements Extension
             $skipCoverage = false;
             $input = $container->get('console.input');
 
+            $coverage = $container->get('code_coverage');
             if ($input->hasOption('no-coverage') && $input->getOption('no-coverage')) {
                 $skipCoverage = true;
+            } else {
+                $coverage->start(null);
             }
 
             $listener = new CodeCoverageListener(
                 $container->get('console.io'),
-                $container->get('code_coverage'),
+                $coverage,
                 $container->get('code_coverage.reports'),
                 $skipCoverage
             );

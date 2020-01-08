@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace FriendsOfPhpSpec\PhpSpec\CodeCoverage\Listener;
 
 use PhpSpec\Console\ConsoleIO;
-use PhpSpec\Event\ExampleEvent;
 use PhpSpec\Event\SuiteEvent;
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 use SebastianBergmann\CodeCoverage\Report;
@@ -53,15 +52,6 @@ class CodeCoverageListener implements EventSubscriberInterface
         $this->skipCoverage = $skipCoverage;
     }
 
-    public function afterExample(ExampleEvent $event): void
-    {
-        if ($this->skipCoverage) {
-            return;
-        }
-
-        $this->coverage->stop();
-    }
-
     public function afterSuite(SuiteEvent $event): void
     {
         if ($this->skipCoverage) {
@@ -89,28 +79,6 @@ class CodeCoverageListener implements EventSubscriberInterface
                 $report->process($this->coverage, $this->options['output'][$format]);
             }
         }
-    }
-
-    public function beforeExample(ExampleEvent $event): void
-    {
-        if ($this->skipCoverage) {
-            return;
-        }
-
-        $example = $event->getExample();
-
-        $name = null;
-
-        if (null !== $spec = $example->getSpecification()) {
-            $name = $spec->getClassReflection()->getName();
-        }
-
-        $name = strtr('%spec%::%example%', [
-            '%spec%' => $name,
-            '%example%' => $example->getFunctionReflection()->getName(),
-        ]);
-
-        $this->coverage->start($name);
     }
 
     /**
@@ -150,8 +118,6 @@ class CodeCoverageListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            'beforeExample' => ['beforeExample', -10],
-            'afterExample' => ['afterExample', -10],
             'beforeSuite' => ['beforeSuite', -10],
             'afterSuite' => ['afterSuite', -10],
         ];
